@@ -1,0 +1,1 @@
+1. Check weather String is a palindrome?
