@@ -4,7 +4,7 @@ public class SolvingLeetcode {
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter number to check if it is a palindrome? = ");
         int x = scanner.nextInt();
-        System.out.println("hello world");
+        //System.out.println("hello world");
         System.out.println("Is x a Palindrome? = ");
         boolean a = palindrome(x);
         System.out.println(a);
