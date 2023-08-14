@@ -8,7 +8,7 @@ public class SolvingLeetcode {
         System.out.println("Is x a Palindrome? = ");
         boolean a = palindrome(x);
         System.out.println(a);
-        String word[] = {"abc","abd","ad"};
+        String word[] = {"abc","abd","aabd"};
         String bro = LongestCommonPrefix(word);
         System.out.print("longest common prefix is = ");
         System.out.println(bro);
@@ -17,11 +17,10 @@ public class SolvingLeetcode {
 
     public static String LongestCommonPrefix(String words[]){
 
-        if(words.length==0) {return  "";}
+        if(words.length == 0) return "";
         String prefix = words[0];
-        for (int i=1;i<words.length;i++)
-        {
-            while (words[i].indexOf(prefix)!=0)
+        for(int i=1;i<words.length;i++){
+            while(words[i].indexOf(prefix) !=0)
             {
                 prefix = prefix.substring(0,prefix.length()-1);
             }
