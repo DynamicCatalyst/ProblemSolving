@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 public class SolvingLeetcode {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,9 +11,24 @@ public class SolvingLeetcode {
         System.out.println(a);
         String word[] = {"abc","abd","aabd"};
         String bro = LongestCommonPrefix(word);
+        String bro2 = LongestCommonPrefix2(word);
         System.out.print("longest common prefix is = ");
-        System.out.println(bro);
+        //System.out.println(bro);
+        System.out.println(bro2);
+    }
+    public static String LongestCommonPrefix2(String words[]){
+            StringBuilder prefix = new StringBuilder();
+            Arrays.sort(words);
+            String front = words[0];
+            String rear = words[words.length-1];
+            for(int i=0; i<front.length(); i++)
+            {
+                if(front.charAt(i) != rear.charAt(i))
+                    break;
+                prefix.append(front.charAt(i));
+            }
 
+            return prefix.toString();
     }
 
     public static String LongestCommonPrefix(String words[]){
