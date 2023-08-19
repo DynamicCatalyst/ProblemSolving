@@ -1,21 +1,48 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.*;
+import java.util.Stack;
+
 public class SolvingLeetcode {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("enter number to check if it is a palindrome? = ");
-        int x = scanner.nextInt();
-        //System.out.println("hello world");
-        System.out.println("Is x a Palindrome? = ");
-        boolean a = palindrome(x);
-        System.out.println(a);
-        String word[] = {"abc","abd","aabd"};
-        String bro = LongestCommonPrefix(word);
-        String bro2 = LongestCommonPrefix2(word);
-        System.out.print("longest common prefix is = ");
-        //System.out.println(bro);
-        System.out.println(bro2);
+//        System.out.println("enter number to check if it is a palindrome? = ");
+//        int x = scanner.nextInt();
+//        //System.out.println("hello world");
+//        System.out.println("Is x a Palindrome? = ");
+//        boolean a = palindrome(x);
+//        System.out.println(a);
+//        String word[] = {"abc","abd","aabd"};
+//        String bro = LongestCommonPrefix(word);
+//        String bro2 = LongestCommonPrefix2(word);
+//        System.out.print("longest common prefix is = ");
+//        //System.out.println(bro);
+//        System.out.println(bro2);
+         String Pthess = "{}()";
+        System.out.println(ParantheesMatch(Pthess));
     }
+    public static boolean ParantheesMatch(String x)
+    {
+        boolean f = false;
+        Stack<Character> stk = new Stack<Character>();
+        stk.push(x.charAt(0));
+        for(int i=1;i<x.length();i++)
+        {
+            char ch = x.charAt(i);
+            if(x.charAt(i)== stk.peek()){
+                stk.pop();
+            }
+            else
+            {
+                stk.push(x.charAt(i));
+            }
+        }
+        if(stk.isEmpty())
+            f = true;
+
+        return f;
+    }
+
     public static String LongestCommonPrefix2(String words[]){
             StringBuilder prefix = new StringBuilder();
             Arrays.sort(words);
