@@ -19,28 +19,38 @@ public class SolvingLeetcode {
 //        //System.out.println(bro);
 //        System.out.println(bro2);
          String Pthess = "{}()";
+        System.out.println("are they matching? = ");
         System.out.println(ParantheesMatch(Pthess));
     }
     public static boolean ParantheesMatch(String x)
     {
-        boolean f = false;
         Stack<Character> stk = new Stack<Character>();
-        stk.push(x.charAt(0));
-        for(int i=1;i<x.length();i++)
+
+        for(int i=0;i<x.length();i++)
         {
-            char ch = x.charAt(i);
-            if(x.charAt(i)== stk.peek()){
-                stk.pop();
-            }
-            else
+            char ch =x.charAt(i);
+            if(ch=='{' || ch == '[' || ch == '(' || ch == '<' )
             {
-                stk.push(x.charAt(i));
+                stk.push(ch);
+            }     else if (ch=='}' || ch == ']' || ch == ')' || ch == '<' ) {
+                 if(stk.isEmpty()) {return false;}
+                 else if (!ismatch(stk.peek(),ch)) {
+                     return false;
+                 }
+                 else stk.pop();
             }
         }
-        if(stk.isEmpty())
-            f = true;
 
-        return f;
+        return stk.isEmpty();
+    }
+    public static boolean ismatch(char a,char b)
+    {
+        return (
+                a=='{' && b =='}' ||
+                        a=='[' && b== ']' ||
+                        a=='(' && b==')'  ||
+                        a=='<' && b=='>'
+        );
     }
 
     public static String LongestCommonPrefix2(String words[]){
