@@ -21,6 +21,16 @@ public class SolvingLeetcode {
          String Pthess = "{}()";
         System.out.println("are they matching? = ");
         System.out.println(ParantheesMatch(Pthess));
+        System.out.println("\\ program for Two sum ");
+        int[] x = new int[2];
+        int[] inp = {2,7,11,15};
+        x= twoSum(inp,9);
+        System.out.print("the numbers are : [");
+        for (int num:x
+             ) {      System.out.print(num+" ");
+        }
+        System.out.println("]");
+
     }
     public static boolean ParantheesMatch(String x)
     {
@@ -97,4 +107,21 @@ public class SolvingLeetcode {
         //System.out.println("f = "+ f);
         return f;
     }
+
+    public static int[] twoSum(int[] nums, int target) {
+        int[] bro = new int[2];
+        for(int i=0;i<nums.length;i++)
+        {
+            for(int j=0;j<nums.length;j++)
+            {
+                if(nums[i]==nums[j]) continue;
+                else if(nums[i]+nums[j] == target)
+                {
+                    bro[0] = nums[i]; bro[1] = nums[j];
+                }
+            }
+        }
+        return bro;
+    }
+
 }
