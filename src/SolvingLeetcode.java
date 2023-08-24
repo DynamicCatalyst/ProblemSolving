@@ -1,7 +1,5 @@
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
 import java.io.*;
-import java.util.Stack;
 
 public class SolvingLeetcode {
     public static void main(String[] args) {
@@ -24,7 +22,8 @@ public class SolvingLeetcode {
         System.out.println("\\ program for Two sum ");
         int[] x = new int[2];
         int[] inp = {2,7,11,15};
-        x= twoSum(inp,9);
+        //x= twoSum(inp,9);
+        x = twosumHashing(inp,9);
         System.out.print("the numbers are : [");
         for (int num:x
              ) {      System.out.print(num+" ");
@@ -122,6 +121,29 @@ public class SolvingLeetcode {
             }
         }
         return bro;
+    }
+
+    public static int [] twosumHashing(int[] nums,int target)
+    {
+        Map<Integer,Integer> hsh = new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            //int[] inp = {2,7,11,15};
+            int complement =target -  nums[i] ;
+
+            if(hsh.containsKey(complement))
+            {
+                return new int[] {hsh.get(complement),i};
+            }
+            else
+            {
+                hsh.put(nums[i],i);
+            }
+        }
+
+
+
+        return new int[] {0};
     }
 
 }
