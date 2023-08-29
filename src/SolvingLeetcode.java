@@ -23,7 +23,7 @@ public class SolvingLeetcode {
         int[] x = new int[2];
         int[] inp = {2,7,11,15};
         //x= twoSum(inp,9);
-        x = twosumHashing(inp,9);
+        x = twoSumsorting(inp,9);
         System.out.print("the numbers are : [");
         for (int num:x
              ) {      System.out.print(num+" ");
@@ -126,24 +126,34 @@ public class SolvingLeetcode {
     public static int [] twosumHashing(int[] nums,int target)
     {
         Map<Integer,Integer> hsh = new HashMap<>();
-        for(int i=0;i<nums.length;i++)
-        {
+        for(int i=0;i<nums.length;i++) {
             //int[] inp = {2,7,11,15};
-            int complement =target -  nums[i] ;
+            int complement = target - nums[i];
 
-            if(hsh.containsKey(complement))
-            {
-                return new int[] {hsh.get(complement),i};
-            }
-            else
-            {
-                hsh.put(nums[i],i);
+            if (hsh.containsKey(complement)) {
+                return new int[]{hsh.get(complement), i};
+            } else {
+                hsh.put(nums[i], i);
             }
         }
-
-
-
         return new int[] {0};
     }
+
+public static int[] twoSumsorting(int[] nums, int target){
+        Arrays.sort(nums);
+        //int i=0;
+        int j= nums.length-1;
+
+            for (int i = 0; i < nums.length - 1; i++) {
+                while (j > i) {
+                    if (nums[i] + nums[j] == target)
+                        return new int[]{nums[i], nums[j]};
+                    j--;
+                }
+            }
+
+    return new int[] {};
+}
+
 
 }
