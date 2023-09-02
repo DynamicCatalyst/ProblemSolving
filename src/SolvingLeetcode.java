@@ -4,32 +4,6 @@ import java.io.*;
 public class SolvingLeetcode {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-//        System.out.println("enter number to check if it is a palindrome? = ");
-//        int x = scanner.nextInt();
-//        //System.out.println("hello world");
-//        System.out.println("Is x a Palindrome? = ");
-//        boolean a = palindrome(x);
-//        System.out.println(a);
-//        String word[] = {"abc","abd","aabd"};
-//        String bro = LongestCommonPrefix(word);
-//        String bro2 = LongestCommonPrefix2(word);
-//        System.out.print("longest common prefix is = ");
-//        //System.out.println(bro);
-//        System.out.println(bro2);
-         String Pthess = "{}()";
-        System.out.println("are they matching? = ");
-        System.out.println(ParantheesMatch(Pthess));
-        System.out.println("\\ program for Two sum ");
-        int[] x = new int[2];
-        int[] inp = {2,7,11,15};
-        //x= twoSum(inp,9);
-        x = twoSumsorting(inp,9);
-        System.out.print("the numbers are : [");
-        for (int num:x
-             ) {      System.out.print(num+" ");
-        }
-        System.out.println("]");
-
     }
     public static boolean ParantheesMatch(String x)
     {
@@ -155,5 +129,33 @@ public static int[] twoSumsorting(int[] nums, int target){
     return new int[] {};
 }
 
+    static int[][] threesumBruteForce(int[] nums,int target) {
+        int[][] ans = new int[nums.length][3];
+        int o=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            int t2= target - nums[i];
+            int k=nums.length-1;
+            for(int j=i+1;j<nums.length;j++)
+            {
 
+                while(k>j){
+
+                    if(nums[j]+nums[k]==t2)
+                    {
+                        ans[o][0]=i;
+                        ans[o][1]=j;
+                        ans[o][2]=k;
+                        o++;
+                    }
+                    k--;
+                }
+            }
+
+        }
+
+        return ans;
+    }
 }
+
+
