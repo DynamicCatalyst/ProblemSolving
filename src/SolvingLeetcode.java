@@ -5,6 +5,16 @@ public class SolvingLeetcode {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
     }
+    static void joinsorted(int[] nums1,int[] nums2)
+    {
+        int len = nums1.length-1;
+        for(int i=0;i<nums2.length;i++)
+        {
+            nums1[len-i] = nums2[i];
+        }
+        Arrays.sort(nums1);
+
+    }
     public static boolean ParantheesMatch(String x)
     {
         Stack<Character> stk = new Stack<Character>();
